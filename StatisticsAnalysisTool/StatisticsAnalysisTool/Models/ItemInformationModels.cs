@@ -167,7 +167,7 @@ namespace StatisticsAnalysisTool.Models
         {
             get
             {
-                if (ItemType == "equipment")
+                if (ItemType == "equipment" || ItemType == "weapon")
                 {
                     var baseFame = ItemController.AmountOfNonArtifactMaterials(CraftingRequirements?.CraftResourceList) * ItemController.GetCraftingBaseFame(Tier);
                     var itemMaterialType = ItemController.GetItemMaterialType(CraftingRequirements?.CraftResourceList);
@@ -178,7 +178,7 @@ namespace StatisticsAnalysisTool.Models
                     }
 
                     var itemTypeCalculation = 0.0f;
-                    var notRoyalCalculation = 0.0f;
+                    float notRoyalCalculation;
 
                     if (itemMaterialType == ItemMaterialType.Artifact)
                     {
