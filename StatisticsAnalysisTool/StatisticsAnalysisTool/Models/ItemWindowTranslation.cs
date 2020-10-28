@@ -41,6 +41,7 @@ namespace StatisticsAnalysisTool.Models
         public string Weight => LanguageController.Translation("WEIGHT");
         public string ItemPower => LanguageController.Translation("ITEM_POWER");
         public string Durability => LanguageController.Translation("DURABILITY");
+        public string CraftingFame => LanguageController.Translation("CRAFTING_FAME");
         public string RealMoneyPrice => LanguageController.Translation("REAL_MONEY_PRICE");
     }
 }

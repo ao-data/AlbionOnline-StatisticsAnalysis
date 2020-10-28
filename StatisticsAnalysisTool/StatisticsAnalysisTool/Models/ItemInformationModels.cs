@@ -3,6 +3,7 @@ using StatisticsAnalysisTool.Common;
 using System;
 using System.Collections.Generic;
 using System.Net;
+// ReSharper disable UnusedMember.Global
 
 namespace StatisticsAnalysisTool.Models
 {
@@ -161,6 +162,49 @@ namespace StatisticsAnalysisTool.Models
 
         [JsonProperty(PropertyName = "lastUpdate")]
         public DateTime LastUpdate { get; set; }
+
+        public float CraftingFame
+        {
+            get
+            {
+                if (ItemType == "equipment")
+                {
+                    var baseFame = ItemController.AmountOfNonArtifactMaterials(CraftingRequirements?.CraftResourceList) * ItemController.GetCraftingBaseFame(Tier);
+                    var itemMaterialType = ItemController.GetItemMaterialType(CraftingRequirements?.CraftResourceList);
+
+                    if (itemMaterialType == ItemMaterialType.Royal)
+                    {
+                        return 0;
+                    }
+
+                    var itemTypeCalculation = 0.0f;
+                    var notRoyalCalculation = 0.0f;
+
+                    if (itemMaterialType == ItemMaterialType.Artifact)
+                    {
+                        itemTypeCalculation = 500;
+                        notRoyalCalculation = Level * (baseFame - 7.5f * ItemController.AmountOfNonArtifactMaterials(CraftingRequirements?.CraftResourceList));
+                    } 
+                    // Deprecated
+                    //else if (itemMaterialType == ItemMaterialType.Royal && Tier < 6)
+                    //{
+                    //    itemTypeCalculation = 2.5f * ItemController.AmountOfNonArtifactMaterials(CraftingRequirements?.CraftResourceList) * (Tier - 3);
+                    //} 
+                    //else if(itemMaterialType == ItemMaterialType.Royal && Tier >= 6)
+                    //{
+                    //    itemTypeCalculation = 2.5f * ItemController.AmountOfNonArtifactMaterials(CraftingRequirements?.CraftResourceList) * 4;
+                    //}
+                    else
+                    {
+                        notRoyalCalculation = Level * (baseFame - 7.5f * ItemController.AmountOfNonArtifactMaterials(CraftingRequirements?.CraftResourceList));
+                    }
+
+                    return baseFame + itemTypeCalculation + notRoyalCalculation;
+                }
+
+                return 0;
+            }
+        }
 
         [JsonIgnore]
         public string LastFullItemInformationUpdate => Common.Formatting.CurrentDateTimeFormat(LastUpdate) ?? string.Empty;

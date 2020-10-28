@@ -47,6 +47,19 @@ namespace StatisticsAnalysisTool.Common
             {GameLanguage.Spain, "ES-ES" },
             {GameLanguage.Chinese, "ZH-CH" }
         };
+
+        public static readonly Dictionary<ItemTier, float> BaseCraftingFame = new Dictionary<ItemTier, float>
+        {
+            {ItemTier.Unknown, 0 },
+            //{ItemTier.T1, "Tier 1" },
+            //{ItemTier.T2, "Tier 2" },
+            //{ItemTier.T3, "Tier 3" },
+            {ItemTier.T4, 22.5f },
+            {ItemTier.T5, 90 },
+            {ItemTier.T6, 270 },
+            {ItemTier.T7, 645 },
+            {ItemTier.T8, 1395 }
+        };
     }
 
     public enum GameLanguage { UnitedStates, Germany, Russia, Poland, Brazil, France, Spain, Chinese }
@@ -56,4 +69,6 @@ namespace StatisticsAnalysisTool.Common
     public enum ItemLevel { Unknown = -1, Level0 = 0, Level1 = 1, Level2 = 2, Level3 = 3 }
 
     public enum ItemQuality { Unknown = -1, Normal = 0, Good = 1, Outstanding = 2, Excellent = 3, Masterpiece = 4 }
+
+    public enum ItemMaterialType { Standard = 0, Artifact = 1, Royal = 2 }
 }

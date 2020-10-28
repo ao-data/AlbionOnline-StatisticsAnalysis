@@ -313,4 +313,6 @@
   <translation name="HAS_BEEN_UNDERCUT">ist unterboten worden</translation>
   <translation name="IS_ALERT_ACTIVATE">Ist Alarm aktiv</translation>
   <translation name="UNDERCUTTING_PRICE">Zu unterbietender Preis</translation>
+
+  <translation name="CRAFTING_FAME">Herstellungsruhm</translation>
 </translations>

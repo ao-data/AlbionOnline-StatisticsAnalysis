@@ -192,6 +192,58 @@ namespace StatisticsAnalysisTool.Common
         }
 
         public static ItemQuality GetQuality(int value) => FrequentlyValues.ItemQualities.FirstOrDefault(x => x.Value == value).Key;
+        
+        public static float GetCraftingBaseFame(int value) => FrequentlyValues.BaseCraftingFame.FirstOrDefault(x => x.Key == (ItemTier)value).Value;
+
+        public static ItemMaterialType GetItemMaterialType(List<CraftResourceList> craftResourceList)
+        {
+            if (craftResourceList == null)
+            {
+                return 0;
+            }
+
+            var itemMaterialType = ItemMaterialType.Standard;
+
+            foreach (var craftResource in craftResourceList)
+            {
+                if (craftResource.UniqueName.Contains("ARTEFACT"))
+                {
+                    itemMaterialType = ItemMaterialType.Artifact;
+                    break;
+                }
+
+                if (craftResource.UniqueName.Contains("QUESTITEM_TOKEN_ROYAL"))
+                {
+                    itemMaterialType = ItemMaterialType.Royal;
+                    break;
+                }
+            }
+
+            return itemMaterialType;
+        }     
+        
+        public static int AmountOfNonArtifactMaterials(List<CraftResourceList> craftResourceList)
+        {
+            if (craftResourceList == null)
+            {
+                return 0;
+            }
+
+            var craftResourceAmount = 0;
+
+            foreach (var craftResource in craftResourceList)
+            {
+                if (!craftResource.UniqueName.Contains("ARTEFACT") 
+                    && !craftResource.UniqueName.Contains("QUESTITEM_TOKEN_ROYAL") 
+                    && !craftResource.UniqueName.Contains("CAPEITEM_FW")
+                    && !craftResource.UniqueName.Contains("FACTION"))
+                {
+                    craftResourceAmount += craftResource.Count;
+                }
+            }
+
+            return craftResourceAmount;
+        }
 
         public static Style LocationStyle(Location location)
         {

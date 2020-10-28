@@ -266,6 +266,7 @@
                             <Label Content="{Binding Translation.Weight, FallbackValue=WEIGHT}" Style="{StaticResource ItemWindow.Information.FullInfoValue}" />
                             <Label Content="{Binding Translation.ItemPower, FallbackValue=ITEM__POWER}" Style="{StaticResource ItemWindow.Information.FullInfoValue}" />
                             <Label Content="{Binding Translation.Durability, FallbackValue=DURABILITY}" Style="{StaticResource ItemWindow.Information.FullInfoValue}" />
+                            <Label Content="{Binding Translation.CraftingFame, FallbackValue=CRAFTING__FAME}" Style="{StaticResource ItemWindow.Information.FullInfoValue}" />
                             <Label Content="{Binding Translation.LastFullInformationUpdate, FallbackValue=LAST_FULL_INFORMATION_UPDATE}" Style="{StaticResource ItemWindow.Information.FullInfoValue}" />
                         </StackPanel>
                         <StackPanel Margin="265,10,0,10">
@@ -280,6 +281,7 @@
                             <Label Content="{Binding ItemInformation.Weight, FallbackValue=-, IsAsync=true, TargetNullValue=-}" Style="{StaticResource ItemWindow.Information.FullInfoValue}" />
                             <Label Content="{Binding ItemInformation.ItemPower, FallbackValue=-, IsAsync=true, TargetNullValue=-}" Style="{StaticResource ItemWindow.Information.FullInfoValue}" />
                             <Label Content="{Binding ItemInformation.Durability, FallbackValue=-, IsAsync=true, TargetNullValue=-}" Style="{StaticResource ItemWindow.Information.FullInfoValue}" />
+                            <Label Content="{Binding ItemInformation.CraftingFame, FallbackValue=-, IsAsync=true, TargetNullValue=-}" Style="{StaticResource ItemWindow.Information.FullInfoValue}" />
                             <Label Content="{Binding ItemInformation.LastFullItemInformationUpdate, FallbackValue=-, IsAsync=True, TargetNullValue=-}" Style="{StaticResource ItemWindow.Information.FullInfoValue}" />
                         </StackPanel>
                     </Grid>
