@@ -245,6 +245,19 @@ namespace StatisticsAnalysisTool.Common
             return craftResourceAmount;
         }
 
+        public static double GetJournalFillRate(int tier, float fame)
+        {
+            var journalFame = FrequentlyValues.JournalFame.FirstOrDefault(x => x.Key == (ItemTier) tier).Value;
+
+            if (journalFame == 0)
+            {
+                return 0;
+            }
+
+            var value = 100.0f / journalFame * fame;
+            return Math.Round(value, 2);
+        }
+
         public static Style LocationStyle(Location location)
         {
             switch (location)

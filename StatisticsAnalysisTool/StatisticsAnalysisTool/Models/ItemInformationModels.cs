@@ -163,7 +163,7 @@ namespace StatisticsAnalysisTool.Models
         [JsonProperty(PropertyName = "lastUpdate")]
         public DateTime LastUpdate { get; set; }
 
-        public float CraftingFame
+        public string CraftingFame
         {
             get
             {
@@ -174,7 +174,7 @@ namespace StatisticsAnalysisTool.Models
 
                     if (itemMaterialType == ItemMaterialType.Royal)
                     {
-                        return 0;
+                        return "-";
                     }
 
                     var itemTypeCalculation = 0.0f;
@@ -199,10 +199,11 @@ namespace StatisticsAnalysisTool.Models
                         notRoyalCalculation = Level * (baseFame - 7.5f * ItemController.AmountOfNonArtifactMaterials(CraftingRequirements?.CraftResourceList));
                     }
 
-                    return baseFame + itemTypeCalculation + notRoyalCalculation;
+                    var craftingFame = baseFame + itemTypeCalculation + notRoyalCalculation;
+                    return $"{craftingFame} ({ItemController.GetJournalFillRate(Tier, craftingFame)}%)";
                 }
 
-                return 0;
+                return "-";
             }
         }
 

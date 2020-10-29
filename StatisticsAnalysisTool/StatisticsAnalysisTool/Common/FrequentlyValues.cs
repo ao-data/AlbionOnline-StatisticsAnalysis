@@ -60,6 +60,18 @@ namespace StatisticsAnalysisTool.Common
             {ItemTier.T7, 645 },
             {ItemTier.T8, 1395 }
         };
+
+        public static readonly Dictionary<ItemTier, int> JournalFame = new Dictionary<ItemTier, int>
+        {
+            {ItemTier.Unknown, 0 },
+            {ItemTier.T2, 300 },
+            {ItemTier.T3, 600 },
+            {ItemTier.T4, 1200 },
+            {ItemTier.T5, 2400 },
+            {ItemTier.T6, 4800 },
+            {ItemTier.T7, 9600 },
+            {ItemTier.T8, 19200 }
+        };
     }
 
     public enum GameLanguage { UnitedStates, Germany, Russia, Poland, Brazil, France, Spain, Chinese }
