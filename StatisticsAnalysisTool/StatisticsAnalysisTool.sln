@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6FA208BE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatisticsAnalysisTool.IntegrationTests", "StatisitcsAnalysisTool.IntegrationTests\StatisticsAnalysisTool.IntegrationTests.csproj", "{0BD75570-9FC4-4CE0-A831-70443588AFF7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatisticsAnalysisTool.UnitTests", "StatisticsAnalysisTool.UnitTests\StatisticsAnalysisTool.UnitTests.csproj", "{1F5A72BE-FAF4-4F4E-BDA8-43CA95EFACE5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,12 +35,21 @@ Global
 		{0BD75570-9FC4-4CE0-A831-70443588AFF7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0BD75570-9FC4-4CE0-A831-70443588AFF7}.Release|x86.ActiveCfg = Release|x86
 		{0BD75570-9FC4-4CE0-A831-70443588AFF7}.Release|x86.Build.0 = Release|x86
+		{1F5A72BE-FAF4-4F4E-BDA8-43CA95EFACE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F5A72BE-FAF4-4F4E-BDA8-43CA95EFACE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F5A72BE-FAF4-4F4E-BDA8-43CA95EFACE5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1F5A72BE-FAF4-4F4E-BDA8-43CA95EFACE5}.Debug|x86.Build.0 = Debug|Any CPU
+		{1F5A72BE-FAF4-4F4E-BDA8-43CA95EFACE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F5A72BE-FAF4-4F4E-BDA8-43CA95EFACE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F5A72BE-FAF4-4F4E-BDA8-43CA95EFACE5}.Release|x86.ActiveCfg = Release|Any CPU
+		{1F5A72BE-FAF4-4F4E-BDA8-43CA95EFACE5}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0BD75570-9FC4-4CE0-A831-70443588AFF7} = {6FA208BE-5EAF-4C1B-BE23-07B79BA85B9F}
+		{1F5A72BE-FAF4-4F4E-BDA8-43CA95EFACE5} = {6FA208BE-5EAF-4C1B-BE23-07B79BA85B9F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1E1097B3-237F-4647-998D-C8EDCA35C74F}
