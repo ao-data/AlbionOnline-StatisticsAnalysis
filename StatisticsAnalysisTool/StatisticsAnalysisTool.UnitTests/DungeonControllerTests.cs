@@ -1,5 +1,12 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StatisticsAnalysisTool.Common;
+using StatisticsAnalysisTool.Enumerations;
+using StatisticsAnalysisTool.Models.NetworkModel;
+using StatisticsAnalysisTool.Network.Controller;
+using StatisticsAnalysisTool.ViewModels;
+using StatisticsAnalysisTool.Views;
+using System;
+using System.Collections.Concurrent;
 
 namespace StatisticsAnalysisTool.UnitTests
 {
@@ -9,16 +16,16 @@ namespace StatisticsAnalysisTool.UnitTests
         [TestMethod]
         public void AddEntity_WithValidValues_EntityInList()
         {
-            //var mainWindow = new MainWindow();
+            var mainWindow = new MainWindow();
 
-            //ITrackingController sut = new TrackingController(new MainWindowViewModel(mainWindow), mainWindow);
-            //sut.EntityController.AddEntity(999, Guid.NewGuid(), "TestPlayer", GameObjectType.Player, GameObjectSubType.Player);
+            ITrackingController sut = new TrackingController(new MainWindowViewModel(mainWindow), mainWindow);
+            sut.EntityController.AddEntity(999, Guid.NewGuid(), "TestPlayer", GameObjectType.Player, GameObjectSubType.Player);
 
-            //var entities = sut.EntityController.GetAllEntities();
+            var entities = sut.EntityController.GetAllEntities();
 
-            //var expected = new ConcurrentDictionary<Guid, PlayerGameObject>();
+            var expected = new ConcurrentDictionary<Guid, PlayerGameObject>();
 
-            //Assert.AreEqual(expected, entities);
+            Assert.AreEqual(expected, entities);
         }
 
         [TestMethod]

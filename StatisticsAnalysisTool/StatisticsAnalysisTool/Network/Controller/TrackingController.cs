@@ -15,7 +15,7 @@ using System.Reflection;
 
 namespace StatisticsAnalysisTool.Network.Controller
 {
-    public class TrackingController
+    public class TrackingController : ITrackingController
     {
         private const int _maxNotifications = 1000;
 
@@ -23,11 +23,12 @@ namespace StatisticsAnalysisTool.Network.Controller
         private readonly MainWindow _mainWindow;
         private readonly MainWindowViewModel _mainWindowViewModel;
         private string _lastClusterHash;
-        public CountUpTimer CountUpTimer;
-        public CombatController CombatController;
-        public DungeonController DungeonController;
-        public EntityController EntityController;
-        
+        public CombatController CombatController { get; }
+        public DungeonController DungeonController { get; }
+        public EntityController EntityController { get; }
+        public CountUpTimer CountUpTimer { get; }
+        public ClusterInfo CurrentCluster { get; private set; }
+
         public TrackingController(MainWindowViewModel mainWindowViewModel, MainWindow mainWindow)
         {
             _mainWindowViewModel = mainWindowViewModel;
@@ -37,8 +38,6 @@ namespace StatisticsAnalysisTool.Network.Controller
             CombatController = new CombatController(this, _mainWindow, mainWindowViewModel);
             CountUpTimer = new CountUpTimer(mainWindowViewModel);
         }
-
-        public ClusterInfo CurrentCluster { get; private set; }
 
         public void RegisterEvents()
         {

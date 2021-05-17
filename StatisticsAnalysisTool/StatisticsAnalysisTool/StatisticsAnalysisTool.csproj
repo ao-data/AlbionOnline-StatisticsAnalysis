@@ -103,8 +103,8 @@
     <Reference Include="log4net, Version=2.0.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.11\lib\net45\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PacketDotNet, Version=1.2.0.0, Culture=neutral, PublicKeyToken=451414c7667b2a58, processorArchitecture=MSIL">
       <HintPath>..\packages\PacketDotNet.1.2.0\lib\net45\PacketDotNet.dll</HintPath>
@@ -204,6 +204,8 @@
     <Compile Include="Network\Controller\CombatController.cs" />
     <Compile Include="Network\Controller\DungeonController.cs" />
     <Compile Include="Network\Controller\EntityController.cs" />
+    <Compile Include="Network\Controller\IEntityController.cs" />
+    <Compile Include="Network\Controller\ITrackingController.cs" />
     <Compile Include="Network\Events\ActiveSpellEffectsUpdateEvent.cs" />
     <Compile Include="Network\Events\NewEquipmentItemEvent.cs" />
     <Compile Include="Network\Events\HealthUpdateEvent.cs" />

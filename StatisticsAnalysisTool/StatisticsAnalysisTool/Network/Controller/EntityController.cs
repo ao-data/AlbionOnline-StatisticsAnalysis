@@ -13,7 +13,7 @@ using System.Linq;
 
 namespace StatisticsAnalysisTool.Network.Controller
 {
-    public class EntityController
+    public class EntityController : IEntityController
     {
         private readonly ConcurrentDictionary<Guid, PlayerGameObject> _knownEntities = new ConcurrentDictionary<Guid, PlayerGameObject>();
         private readonly ConcurrentDictionary<Guid, string> _knownPartyEntities = new ConcurrentDictionary<Guid, string>();
