@@ -34,6 +34,11 @@ namespace StatisticsAnalysisTool.Common
 
         public static readonly Brush ToggleOffColor = new SolidColorBrush((Color) Application.Current.Resources["Color.Text.Normal"]);
 
+        public static Item GetItemByUniqueName(string uniqueName)
+        {
+            return Items.FirstOrDefault(i => i.UniqueName == uniqueName);
+        }
+
         public static Item GetItemByIndex(int index)
         {
             return Items.FirstOrDefault(i => i.Index == index);

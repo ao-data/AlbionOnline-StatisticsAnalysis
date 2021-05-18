@@ -8,30 +8,32 @@
     <DataTemplate DataType="{x:Type models:CraftResource}">
         <Grid Width="auto" Height="auto">
             <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                <Label Content="{Binding UniqueName}" Width="150" Height="26" Background="BlueViolet" />
-                <Label Content="{Binding Count}" Width="100" Height="26" Background="Coral" />
+                <Label Content="{Binding LocalizedName}" Width="150" Height="26" Background="BlueViolet" />
+                <Label Content="{Binding Count}" Width="150" Height="26" Background="Coral" />
             </StackPanel>
         </Grid>
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type models:ItemInformation}">
         <Grid Width="auto" Height="auto" Margin="5 0 0 0">
-            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                <Label Content="TOTAL_AMOUNT_RESOURCES" Width="150" Height="26" Background="BlueViolet" />
-                <Label Content="{Binding CraftingRequirements.TotalAmountResources}" Width="150" Height="26" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                <Label Content="TOTAL_AMOUNT_RESOURCES" Width="150" Height="26" Background="BlueViolet" />
-                <Label Content="{Binding CraftingRequirements.TotalAmountResources}" Width="150" Height="26" />
-            </StackPanel>
-            <StackPanel Orientation="Vertical">
-                <ItemsControl ItemsSource="{Binding CraftingRequirements.CraftResource}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <UniformGrid Rows="2"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <Label Content="TOTAL_AMOUNT_RESOURCES" Width="150" Height="26" Background="BlueViolet" />
+                    <Label Content="{Binding CraftingRequirements.TotalAmountResources}" Width="150" Height="26" Background="Coral" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <Label Content="TOTAL_AMOUNT_RESOURCES" Width="150" Height="26" Background="BlueViolet" />
+                    <Label Content="{Binding CraftingRequirements.TotalAmountResources}" Width="150" Height="26" Background="Coral" />
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <ItemsControl ItemsSource="{Binding CraftingRequirements.CraftResource}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Rows="2"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </StackPanel>
             </StackPanel>
         </Grid>
     </DataTemplate>

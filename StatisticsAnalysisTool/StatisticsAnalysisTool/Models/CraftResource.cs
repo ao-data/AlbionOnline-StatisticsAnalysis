@@ -1,39 +1,16 @@
 ﻿using Newtonsoft.Json;
-using StatisticsAnalysisTool.Annotations;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using StatisticsAnalysisTool.Common;
 
 namespace StatisticsAnalysisTool.Models
 {
-    public class CraftResource : INotifyPropertyChanged
+    public class CraftResource
     {
-        private string _uniqueName;
-        private int _count;
-
         [JsonProperty(PropertyName = "uniqueName")]
-        public string UniqueName {
-            get => _uniqueName;
-            set {
-                _uniqueName = value;
-                OnPropertyChanged();
-            }
-        }
+        public string UniqueName { get; set; }
 
         [JsonProperty(PropertyName = "count")]
-        public int Count {
-            get => _count;
-            set {
-                _count = value;
-                OnPropertyChanged();
-            }
-        }
+        public int Count { get; set; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        public string LocalizedName => ItemController.GetItemByUniqueName(UniqueName).LocalizedName;
     }
 }
