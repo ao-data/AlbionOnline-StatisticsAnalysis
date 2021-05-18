@@ -47,7 +47,7 @@ namespace StatisticsAnalysisTool.ViewModels
         private Visibility _informationLoadingImageVisibility;
         private bool _isAutoUpdateActive;
         private Item _item;
-        private ItemInformation _itemInformation;
+        private ItemInformation _itemInfo;
         private XmlLanguage _itemListViewLanguage;
         private string _itemName;
         private string _itemTierLevel;
@@ -76,7 +76,7 @@ namespace StatisticsAnalysisTool.ViewModels
 
         public void InitializeItemWindow(Item item)
         {
-            ItemInformation = null;
+            ItemInfo = null;
             ErrorBarVisibility = Visibility.Hidden;
             SetDefaultQualityIfNoOneChecked();
 
@@ -135,7 +135,7 @@ namespace StatisticsAnalysisTool.ViewModels
         private async void SetFullItemInformationAsync(Item item)
         {
             InformationLoadingImageVisibility = Visibility.Visible;
-            ItemInformation = await ItemController.GetFullItemInformationAsync(item);
+            ItemInfo = await ItemController.GetFullItemInformationAsync(item);
             InformationLoadingImageVisibility = Visibility.Hidden;
         }
 
@@ -621,12 +621,12 @@ namespace StatisticsAnalysisTool.ViewModels
             }
         }
 
-        public ItemInformation ItemInformation
+        public ItemInformation ItemInfo
         {
-            get => _itemInformation;
+            get => _itemInfo;
             set
             {
-                _itemInformation = value;
+                _itemInfo = value;
                 OnPropertyChanged();
             }
         }

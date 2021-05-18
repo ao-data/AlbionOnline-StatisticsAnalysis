@@ -188,6 +188,16 @@
     <Compile Include="Enumerations\CityFaction.cs" />
     <Compile Include="Enumerations\GameObjectSubType.cs" />
     <Compile Include="Enumerations\GameObjectType.cs" />
+    <Compile Include="Models\BuffOverTime.cs" />
+    <Compile Include="Models\Channeling.cs" />
+    <Compile Include="Models\CraftingRequirements.cs" />
+    <Compile Include="Models\CraftResource.cs" />
+    <Compile Include="Models\DirectAttributeChange.cs" />
+    <Compile Include="Models\Enchantment.cs" />
+    <Compile Include="Models\Enchantments.cs" />
+    <Compile Include="Models\ItemInformation.cs" />
+    <Compile Include="Models\LocalizedDescriptions.cs" />
+    <Compile Include="Models\LocalizedNames.cs" />
     <Compile Include="Models\MainStatObject.cs" />
     <Compile Include="Models\EquipmentItem.cs" />
     <Compile Include="Models\NetworkModel\CharacterEquipment.cs" />
@@ -294,7 +304,7 @@
     <Compile Include="Models\GoldModels.cs" />
     <Compile Include="Models\ItemJsonObject.cs" />
     <Compile Include="Models\ItemCategoryTree.cs" />
-    <Compile Include="Models\ItemInformationModels.cs" />
+    <Compile Include="Models\Buff.cs" />
     <Compile Include="Models\InfoWindowTranslation.cs" />
     <Compile Include="Models\MainWindowTranslation.cs" />
     <Compile Include="Models\ItemWindowTranslation.cs" />
@@ -360,6 +370,10 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Page Include="ItemWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Tracking.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -7,6 +7,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Main.xaml" />
                 <ResourceDictionary Source="Tracking.xaml" />
+                <ResourceDictionary Source="ItemWindow.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

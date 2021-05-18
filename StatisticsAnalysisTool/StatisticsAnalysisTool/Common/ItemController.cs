@@ -318,7 +318,7 @@ namespace StatisticsAnalysisTool.Common
 
         #endregion Item list
 
-        #region ItemInformation
+        #region ItemInfo
 
         public static bool IsFullItemInformationComplete =>
             Items?.All(item => IsItemInformationUpToDate(item?.FullItemInformation?.LastUpdate)) ?? false;
@@ -427,6 +427,6 @@ namespace StatisticsAnalysisTool.Common
             return itemInfo?.SlotType == slotType;
         }
 
-        #endregion ItemInformation
+        #endregion ItemInfo
     }
 }
