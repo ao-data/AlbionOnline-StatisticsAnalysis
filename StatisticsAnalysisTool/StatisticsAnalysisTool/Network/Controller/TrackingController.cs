@@ -1,5 +1,4 @@
 ﻿using log4net;
-using PcapDotNet.Base;
 using StatisticsAnalysisTool.Enumerations;
 using StatisticsAnalysisTool.GameData;
 using StatisticsAnalysisTool.Models;
@@ -155,7 +154,10 @@ namespace StatisticsAnalysisTool.Network.Controller
 
         private static DateTime? GetLowestDate(ObservableCollection<TrackingNotification> items)
         {
-            if (items.IsNullOrEmpty()) return null;
+            if (items == null || items.Count <= 0)
+            {
+                return null;
+            }
 
             try
             {

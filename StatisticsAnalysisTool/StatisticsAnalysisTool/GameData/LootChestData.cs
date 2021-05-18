@@ -1,6 +1,5 @@
 ﻿using log4net;
 using Newtonsoft.Json;
-using PcapDotNet.Base;
 using StatisticsAnalysisTool.Common;
 using StatisticsAnalysisTool.Enumerations;
 using StatisticsAnalysisTool.Models;
@@ -9,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Reflection;
 using System.Text;
@@ -160,15 +160,15 @@ namespace StatisticsAnalysisTool.GameData
                 if (fileDateTime.AddDays(Settings.Default.UpdateWorldDataByDays) < DateTime.Now)
                 {
                     if (await GetLootChestListFromWebAsync(url)) LootChests = GetLootChestDataFromLocal();
-                    return LootChests != null && !LootChests.IsNullOrEmpty();
+                    return LootChests != null && LootChests?.Count() > 0;
                 }
 
                 LootChests = GetLootChestDataFromLocal();
-                return LootChests != null && !LootChests.IsNullOrEmpty();
+                return LootChests != null && LootChests?.Count() > 0;
             }
 
             if (await GetLootChestListFromWebAsync(url)) LootChests = GetLootChestDataFromLocal();
-            return LootChests != null && !LootChests.IsNullOrEmpty();
+            return LootChests != null && LootChests?.Count() > 0;
         }
 
         #region Helper methods
