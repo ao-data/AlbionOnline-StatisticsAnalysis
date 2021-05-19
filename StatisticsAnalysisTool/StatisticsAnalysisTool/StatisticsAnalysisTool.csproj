@@ -173,6 +173,7 @@
     <Compile Include="Common\AlertController.cs" />
     <Compile Include="Common\ConsoleManager.cs" />
     <Compile Include="Common\Converter.cs" />
+    <Compile Include="Enumerations\CraftingJournalFame.cs" />
     <Compile Include="Common\ExtensionMethod.cs" />
     <Compile Include="Common\FixPoint.cs" />
     <Compile Include="Common\FactionWarfareController.cs" />
