@@ -7,8 +7,14 @@ namespace StatisticsAnalysisTool.Models
     {
         public ObservableCollection<CraftResource> CraftResource { get; set; }
 
-        public int TotalAmountResources => CraftResource?.Sum(x => x?.Count) ?? 0;
+        public double BaseFame { get; set; }
 
-        public int CraftingJournalFillRate => 100;
+        public double JournalFillFame { get; set; }
+        
+        public int TotalAmountResources => CraftResource?
+            .Where(x => x.UniqueName.Contains("LEATHER") || x.UniqueName.Contains("METALBAR") || x.UniqueName.Contains("PLANKS") || x.UniqueName.Contains("CLOTH"))
+            .Sum(x => x?.Count) ?? 0;
+
+        public double CraftingJournalFillRate => (100 / JournalFillFame) * (BaseFame * TotalAmountResources);
     }
 }

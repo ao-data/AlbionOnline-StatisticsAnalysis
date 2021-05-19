@@ -3,6 +3,7 @@ using LiveCharts;
 using LiveCharts.Wpf;
 using log4net;
 using StatisticsAnalysisTool.Common;
+using StatisticsAnalysisTool.Enumerations;
 using StatisticsAnalysisTool.Exceptions;
 using StatisticsAnalysisTool.Models;
 using StatisticsAnalysisTool.Properties;
@@ -138,6 +139,16 @@ namespace StatisticsAnalysisTool.ViewModels
             InformationLoadingImageVisibility = Visibility.Visible;
             ItemInfo = await ItemController.GetFullItemInformationAsync(item);
             InformationLoadingImageVisibility = Visibility.Hidden;
+        }
+
+        private void SetCraftingInfo()
+        {
+
+            CraftingInfo = new CraftingInformation()
+            {
+                CraftResource = ItemInfo.CraftingRequirements.CraftResource,
+                BaseFame = FrequentlyValues.GetBaseFame((ItemTier)Item.Tier, (ItemLevel)Item.Level, Artifact.Runes)
+            };
         }
 
         private void SetErrorValues(Error error)
