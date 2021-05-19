@@ -49,39 +49,122 @@ namespace StatisticsAnalysisTool.Common
             {GameLanguage.Chinese, "ZH-CN"}
         };
 
-        // BaseFame array = { Normal, Rune, Soul, Relic, Avalon }
-        private static readonly double[] BaseFameT2 = { 1.5, -1, -1, -1, -1 };
-        private static readonly double[] BaseFameT3 = { 7.5, -1, -1, -1, -1 };
-        private static readonly double[] BaseFameT4 = { 22.5, 24.75, 27.00, 29.95, 31.50 };
-        private static readonly double[] BaseFameT41 = { 37.5, 41.25, 45.00, 0, 0 };
-        private static readonly double[] BaseFameT42 = { 52.5, 57.75, 63.00, 68.25, 0 };
-        private static readonly double[] BaseFameT43 = { 67.5, 0, 0, 0, 0 };
-        private static readonly double[] BaseFameT5 = { 90, 0, 0, 0, 0 };
-        private static readonly double[] BaseFameT51 = { 172.50, 0, 0, 0, 0 };
-        private static readonly double[] BaseFameT52 = { 255, 0, 0, 0, 0 };
-        private static readonly double[] BaseFameT53 = { 377.50, 0, 0, 0, 0 };
-        private static readonly double[] BaseFameT6 = { 270, 0, 0, 0, 0 };
-        private static readonly double[] BaseFameT61 = { 266.25, 585.75, 0, 0, 0 };
-        private static readonly double[] BaseFameT62 = { 420, 0, 954, 0, 0 };
-        private static readonly double[] BaseFameT63 = { 0, 0, 0, 0, 0 };
-        private static readonly double[] BaseFameT7 = { 645, 0, 0, 0, 0 };
-        private static readonly double[] BaseFameT71 = { 1282.50, 0, 0, 0, 0 };
-        private static readonly double[] BaseFameT72 = { 0, 2112, 0, 0, 0 };
-        private static readonly double[] BaseFameT73 = { 0, 0, 0, 0, 0 };
-        private static readonly double[] BaseFameT8 = { 1395, 0, 0, 0, 0 };
-        private static readonly double[] BaseFameT81 = { 2782.5, 0, 0, 0, 0 };
-        private static readonly double[] BaseFameT82 = { 0, 0, 0, 0, 0 };
-        private static readonly double[] BaseFameT83 = { 0, 0, 0, 0, 0 };
+        public static double GetBaseFame(ItemTier tier, ItemLevel level, Artifact artifact)
+        {
+            return (tier, level, artifact) switch
+            {
+                (ItemTier.T2, ItemLevel.Level0, Artifact.Unknown) => 1.5,
 
-        private static readonly double[][] BaseFameTier2Area = { BaseFameT2 };
-        private static readonly double[][] BaseFameTier3Area = { BaseFameT3 };
-        private static readonly double[][] BaseFameTier4Area = { BaseFameT4, BaseFameT41, BaseFameT42, BaseFameT43 };
-        private static readonly double[][] BaseFameTier5Area = { BaseFameT5, BaseFameT51, BaseFameT52, BaseFameT53 };
-        private static readonly double[][] BaseFameTier6Area = { BaseFameT6, BaseFameT61, BaseFameT62, BaseFameT63 };
-        private static readonly double[][] BaseFameTier7Area = { BaseFameT7, BaseFameT71, BaseFameT72, BaseFameT73 };
-        private static readonly double[][] BaseFameTier8Area = { BaseFameT8, BaseFameT81, BaseFameT82, BaseFameT83 };
+                (ItemTier.T3, ItemLevel.Level0, Artifact.Unknown) => 7.5,
 
-        public static readonly double[][][] BaseFame = { BaseFameTier2Area, BaseFameTier3Area, BaseFameTier4Area, BaseFameTier5Area, BaseFameTier6Area, BaseFameTier7Area, BaseFameTier8Area };
+                (ItemTier.T4, ItemLevel.Level0, Artifact.Unknown) => 22.5,
+                (ItemTier.T4, ItemLevel.Level0, Artifact.Runes) => 24.75,
+                (ItemTier.T4, ItemLevel.Level0, Artifact.Souls) => 27.00,
+                (ItemTier.T4, ItemLevel.Level0, Artifact.Relics) => 29.25,
+                (ItemTier.T4, ItemLevel.Level0, Artifact.Avalon) => 31.50,
+                (ItemTier.T4, ItemLevel.Level1, Artifact.Unknown) => 37.50,
+                (ItemTier.T4, ItemLevel.Level1, Artifact.Runes) => 41.25,
+                (ItemTier.T4, ItemLevel.Level1, Artifact.Souls) => 45.00,
+                (ItemTier.T4, ItemLevel.Level1, Artifact.Relics) => 0,
+                (ItemTier.T4, ItemLevel.Level1, Artifact.Avalon) => 0,
+                (ItemTier.T4, ItemLevel.Level2, Artifact.Unknown) => 52.5,
+                (ItemTier.T4, ItemLevel.Level2, Artifact.Runes) => 57.75,
+                (ItemTier.T4, ItemLevel.Level2, Artifact.Souls) => 63.00,
+                (ItemTier.T4, ItemLevel.Level2, Artifact.Relics) => 68.25,
+                (ItemTier.T4, ItemLevel.Level2, Artifact.Avalon) => 0,
+                (ItemTier.T4, ItemLevel.Level3, Artifact.Unknown) => 67.50,
+                (ItemTier.T4, ItemLevel.Level3, Artifact.Runes) => 0,
+                (ItemTier.T4, ItemLevel.Level3, Artifact.Souls) => 0,
+                (ItemTier.T4, ItemLevel.Level3, Artifact.Relics) => 0,
+                (ItemTier.T4, ItemLevel.Level3, Artifact.Avalon) => 0,
+
+                (ItemTier.T5, ItemLevel.Level0, Artifact.Unknown) => 90,
+                (ItemTier.T5, ItemLevel.Level0, Artifact.Runes) => 0,
+                (ItemTier.T5, ItemLevel.Level0, Artifact.Souls) => 0,
+                (ItemTier.T5, ItemLevel.Level0, Artifact.Relics) => 0,
+                (ItemTier.T5, ItemLevel.Level0, Artifact.Avalon) => 0,
+                (ItemTier.T5, ItemLevel.Level1, Artifact.Unknown) => 172.50,
+                (ItemTier.T5, ItemLevel.Level1, Artifact.Runes) => 0,
+                (ItemTier.T5, ItemLevel.Level1, Artifact.Souls) => 0,
+                (ItemTier.T5, ItemLevel.Level1, Artifact.Relics) => 0,
+                (ItemTier.T5, ItemLevel.Level1, Artifact.Avalon) => 0,
+                (ItemTier.T5, ItemLevel.Level2, Artifact.Unknown) => 255,
+                (ItemTier.T5, ItemLevel.Level2, Artifact.Runes) => 0,
+                (ItemTier.T5, ItemLevel.Level2, Artifact.Souls) => 0,
+                (ItemTier.T5, ItemLevel.Level2, Artifact.Relics) => 0,
+                (ItemTier.T5, ItemLevel.Level2, Artifact.Avalon) => 0,
+                (ItemTier.T5, ItemLevel.Level3, Artifact.Unknown) => 337.50,
+                (ItemTier.T5, ItemLevel.Level3, Artifact.Runes) => 0,
+                (ItemTier.T5, ItemLevel.Level3, Artifact.Souls) => 0,
+                (ItemTier.T5, ItemLevel.Level3, Artifact.Relics) => 0,
+                (ItemTier.T5, ItemLevel.Level3, Artifact.Avalon) => 0,
+
+                (ItemTier.T6, ItemLevel.Level0, Artifact.Unknown) => 270,
+                (ItemTier.T6, ItemLevel.Level0, Artifact.Runes) => 0,
+                (ItemTier.T6, ItemLevel.Level0, Artifact.Souls) => 0,
+                (ItemTier.T6, ItemLevel.Level0, Artifact.Relics) => 0,
+                (ItemTier.T6, ItemLevel.Level0, Artifact.Avalon) => 0,
+                (ItemTier.T6, ItemLevel.Level1, Artifact.Unknown) => 266.25,
+                (ItemTier.T6, ItemLevel.Level1, Artifact.Runes) => 585.75,
+                (ItemTier.T6, ItemLevel.Level1, Artifact.Souls) => 0,
+                (ItemTier.T6, ItemLevel.Level1, Artifact.Relics) => 0,
+                (ItemTier.T6, ItemLevel.Level1, Artifact.Avalon) => 0,
+                (ItemTier.T6, ItemLevel.Level2, Artifact.Unknown) => 420,
+                (ItemTier.T6, ItemLevel.Level2, Artifact.Runes) => 0,
+                (ItemTier.T6, ItemLevel.Level2, Artifact.Souls) => 954,
+                (ItemTier.T6, ItemLevel.Level2, Artifact.Relics) => 0,
+                (ItemTier.T6, ItemLevel.Level2, Artifact.Avalon) => 0,
+                (ItemTier.T6, ItemLevel.Level3, Artifact.Unknown) => 0,
+                (ItemTier.T6, ItemLevel.Level3, Artifact.Runes) => 0,
+                (ItemTier.T6, ItemLevel.Level3, Artifact.Souls) => 0,
+                (ItemTier.T6, ItemLevel.Level3, Artifact.Relics) => 0,
+                (ItemTier.T6, ItemLevel.Level3, Artifact.Avalon) => 0,
+
+                (ItemTier.T7, ItemLevel.Level0, Artifact.Unknown) => 645,
+                (ItemTier.T7, ItemLevel.Level0, Artifact.Runes) => 0,
+                (ItemTier.T7, ItemLevel.Level0, Artifact.Souls) => 0,
+                (ItemTier.T7, ItemLevel.Level0, Artifact.Relics) => 0,
+                (ItemTier.T7, ItemLevel.Level0, Artifact.Avalon) => 0,
+                (ItemTier.T7, ItemLevel.Level1, Artifact.Unknown) => 1282.50,
+                (ItemTier.T7, ItemLevel.Level1, Artifact.Runes) => 0,
+                (ItemTier.T7, ItemLevel.Level1, Artifact.Souls) => 0,
+                (ItemTier.T7, ItemLevel.Level1, Artifact.Relics) => 0,
+                (ItemTier.T7, ItemLevel.Level1, Artifact.Avalon) => 0,
+                (ItemTier.T7, ItemLevel.Level2, Artifact.Unknown) => 0,
+                (ItemTier.T7, ItemLevel.Level2, Artifact.Runes) => 2112.00,
+                (ItemTier.T7, ItemLevel.Level2, Artifact.Souls) => 0,
+                (ItemTier.T7, ItemLevel.Level2, Artifact.Relics) => 0,
+                (ItemTier.T7, ItemLevel.Level2, Artifact.Avalon) => 0,
+                (ItemTier.T7, ItemLevel.Level3, Artifact.Unknown) => 0,
+                (ItemTier.T7, ItemLevel.Level3, Artifact.Runes) => 0,
+                (ItemTier.T7, ItemLevel.Level3, Artifact.Souls) => 0,
+                (ItemTier.T7, ItemLevel.Level3, Artifact.Relics) => 0,
+                (ItemTier.T7, ItemLevel.Level3, Artifact.Avalon) => 0,
+
+                (ItemTier.T8, ItemLevel.Level0, Artifact.Unknown) => 1395,
+                (ItemTier.T8, ItemLevel.Level0, Artifact.Runes) => 0,
+                (ItemTier.T8, ItemLevel.Level0, Artifact.Souls) => 0,
+                (ItemTier.T8, ItemLevel.Level0, Artifact.Relics) => 0,
+                (ItemTier.T8, ItemLevel.Level0, Artifact.Avalon) => 0,
+                (ItemTier.T8, ItemLevel.Level1, Artifact.Unknown) => 2782.50,
+                (ItemTier.T8, ItemLevel.Level1, Artifact.Runes) => 0,
+                (ItemTier.T8, ItemLevel.Level1, Artifact.Souls) => 0,
+                (ItemTier.T8, ItemLevel.Level1, Artifact.Relics) => 0,
+                (ItemTier.T8, ItemLevel.Level1, Artifact.Avalon) => 0,
+                (ItemTier.T8, ItemLevel.Level2, Artifact.Unknown) => 0,
+                (ItemTier.T8, ItemLevel.Level2, Artifact.Runes) => 0,
+                (ItemTier.T8, ItemLevel.Level2, Artifact.Souls) => 0,
+                (ItemTier.T8, ItemLevel.Level2, Artifact.Relics) => 0,
+                (ItemTier.T8, ItemLevel.Level2, Artifact.Avalon) => 0,
+                (ItemTier.T8, ItemLevel.Level3, Artifact.Unknown) => 0,
+                (ItemTier.T8, ItemLevel.Level3, Artifact.Runes) => 0,
+                (ItemTier.T8, ItemLevel.Level3, Artifact.Souls) => 0,
+                (ItemTier.T8, ItemLevel.Level3, Artifact.Relics) => 0,
+                (ItemTier.T8, ItemLevel.Level3, Artifact.Avalon) => 0,
+
+                _ => -1
+            };
+        }
     }
 
     public enum ItemTier

@@ -67,6 +67,7 @@ namespace StatisticsAnalysisTool.ViewModels
         private bool _showBlackZoneOutpostsChecked;
         private bool _showVillagesChecked;
         private ItemWindowTranslation _translation;
+        private CraftingInformation _craftingInfo;
 
         public ItemWindowViewModel(ItemWindow mainWindow, Item item)
         {
@@ -627,6 +628,16 @@ namespace StatisticsAnalysisTool.ViewModels
             set
             {
                 _itemInfo = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public CraftingInformation CraftingInfo
+        {
+            get => _craftingInfo;
+            set
+            {
+                _craftingInfo = value;
                 OnPropertyChanged();
             }
         }
