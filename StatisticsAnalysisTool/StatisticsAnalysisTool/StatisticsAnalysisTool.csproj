@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -173,6 +173,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Common\AlertController.cs" />
+    <Compile Include="Enumerations\Artifacts.cs" />
     <Compile Include="Common\ConsoleManager.cs" />
     <Compile Include="Common\Converter.cs" />
     <Compile Include="Enumerations\CraftingJournalFame.cs" />
@@ -350,6 +351,7 @@
     </Compile>
     <Compile Include="Models\DungeonStats.cs" />
     <Compile Include="Network\Time\GameTimeSpan.cs" />
+    <Compile Include="Models\CraftingInformation.cs" />
     <Compile Include="ViewModels\InfoWindowViewModel.cs" />
     <Compile Include="Models\ItemAlertWindowTranslation.cs" />
     <Compile Include="ViewModels\ItemWindowViewModel.cs" />
