@@ -1,0 +1,542 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{02F8395A-F9F6-4D53-AF2F-D83F6B8F8ADD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>StatisticsAnalysisTool</RootNamespace>
+    <AssemblyName>StatisticsAnalysisTool</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>false</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>0.0.2.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <LangVersion>8</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>8</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>StatisticsAnalysisTool.App</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>8</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>8</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\AlertController.cs" />
+    <Compile Include="Enumerations\Artifacts.cs" />
+    <Compile Include="Common\ConsoleManager.cs" />
+    <Compile Include="Common\Converter.cs" />
+    <Compile Include="Enumerations\CraftingJournalFame.cs" />
+    <Compile Include="Common\ExtensionMethod.cs" />
+    <Compile Include="Common\FixPoint.cs" />
+    <Compile Include="Common\FactionWarfareController.cs" />
+    <Compile Include="Common\Shortcut\IShellLink.cs" />
+    <Compile Include="Common\Shortcut\ShellLink.cs" />
+    <Compile Include="Common\Shortcut\ShortcutController.cs" />
+    <Compile Include="Enumerations\GameLanguage.cs" />
+    <Compile Include="Common\ProgressBarSmoother.cs" />
+    <Compile Include="Enumerations\ClusterType.cs" />
+    <Compile Include="Enumerations\DamageMeterSort.cs" />
+    <Compile Include="Enumerations\EffectOrigin.cs" />
+    <Compile Include="Enumerations\EffectType.cs" />
+    <Compile Include="Enumerations\CityFaction.cs" />
+    <Compile Include="Enumerations\GameObjectSubType.cs" />
+    <Compile Include="Enumerations\GameObjectType.cs" />
+    <Compile Include="Models\BuffOverTime.cs" />
+    <Compile Include="Models\Channeling.cs" />
+    <Compile Include="Models\CraftingRequirements.cs" />
+    <Compile Include="Models\CraftingSpellList.cs" />
+    <Compile Include="Models\CraftResource.cs" />
+    <Compile Include="Models\CraftSpell.cs" />
+    <Compile Include="Models\DirectAttributeChange.cs" />
+    <Compile Include="Models\Enchantment.cs" />
+    <Compile Include="Models\Enchantments.cs" />
+    <Compile Include="Models\MainItemInformation.cs" />
+    <Compile Include="Models\LocalizedDescriptions.cs" />
+    <Compile Include="Models\LocalizedNames.cs" />
+    <Compile Include="Models\MainStatObject.cs" />
+    <Compile Include="Models\EquipmentItem.cs" />
+    <Compile Include="Models\NetworkModel\CharacterEquipment.cs" />
+    <Compile Include="Models\NetworkModel\DungeonChestObject.cs" />
+    <Compile Include="Models\NetworkModel\DungeonObject.cs" />
+    <Compile Include="Models\NetworkModel\TimeCollectObject.cs" />
+    <Compile Include="Models\NetworkModel\GameObject.cs" />
+    <Compile Include="Models\NetworkModel\PlayerGameObject.cs" />
+    <Compile Include="Models\NetworkModel\HealthUpdate.cs" />
+    <Compile Include="Models\NetworkModel\LocalUserData.cs" />
+    <Compile Include="Models\NetworkModel\PartyMemberCircle.cs" />
+    <Compile Include="Models\NetworkModel\ValuePerHour.cs" />
+    <Compile Include="Models\SpellEffect.cs" />
+    <Compile Include="Models\UpgradeRequirements.cs" />
+    <Compile Include="Models\UpgradeResource.cs" />
+    <Compile Include="Network\Controller\CombatController.cs" />
+    <Compile Include="Network\Controller\DungeonController.cs" />
+    <Compile Include="Network\Controller\EntityController.cs" />
+    <Compile Include="Network\Events\ActiveSpellEffectsUpdateEvent.cs" />
+    <Compile Include="Network\Events\NewEquipmentItemEvent.cs" />
+    <Compile Include="Network\Events\HealthUpdateEvent.cs" />
+    <Compile Include="Network\Events\LeaveEvent.cs" />
+    <Compile Include="Network\Events\CharacterEquipmentChangedEvent.cs" />
+    <Compile Include="Network\Events\NewMobEvent.cs" />
+    <Compile Include="Network\Events\NewShrineEvent.cs" />
+    <Compile Include="Network\Events\InCombatStateUpdateEvent.cs" />
+    <Compile Include="Network\Events\SiegeCampClaimStartEvent.cs" />
+    <Compile Include="Network\Events\PartyChangedOrderEvent.cs" />
+    <Compile Include="Network\Events\PartyDisbandedEvent.cs" />
+    <Compile Include="Network\Events\UpdateCurrencyEvent.cs" />
+    <Compile Include="Network\Events\UpdateFactionStandingEvent.cs" />
+    <Compile Include="Network\Handler\ActiveSpellEffectsUpdateEventHandler.cs" />
+    <Compile Include="Network\Handler\NewEquipmentItemEventHandler.cs" />
+    <Compile Include="Network\Handler\HealthUpdateEventHandler.cs" />
+    <Compile Include="Network\Handler\LeaveEventHandler.cs" />
+    <Compile Include="Network\Handler\CharacterEquipmentChangedEventHandler.cs" />
+    <Compile Include="Network\Handler\NewMobEventHandler.cs" />
+    <Compile Include="Network\Handler\PartyMakeLeaderEventHandler.cs" />
+    <Compile Include="Network\Handler\NewShrineEventHandler.cs" />
+    <Compile Include="Network\Handler\InCombatStateUpdateEventHandler.cs" />
+    <Compile Include="Network\Handler\SiegeCampClaimStartEventHandler.cs" />
+    <Compile Include="Network\Handler\PartyChangedOrderEventHandler.cs" />
+    <Compile Include="Network\Handler\PartyDisbandedEventHandler.cs" />
+    <Compile Include="Network\Handler\UpdateCurrencyEventHandler.cs" />
+    <Compile Include="Network\Handler\UpdateFactionStandingEventHandler.cs" />
+    <Compile Include="Network\Notification\CombatNotificationFragment.cs" />
+    <Compile Include="Network\Notification\DamageMeterFragment.cs" />
+    <Compile Include="Network\Notification\FactionPointsNotificationFragment.cs" />
+    <Compile Include="Network\Notification\FactionFlagPointsNotificationFragment.cs" />
+    <Compile Include="Enumerations\HandlerType.cs" />
+    <Compile Include="Network\Notification\SilverNotificationFragment.cs" />
+    <Compile Include="Network\Operations\Responses\PartyMakeLeaderResponse.cs" />
+    <Compile Include="Network\Time\GameTimeStamp.cs" />
+    <Compile Include="GameData\LootChestData.cs" />
+    <Compile Include="GameData\WorldData.cs" />
+    <Compile Include="Network\Controller\TrackingController.cs" />
+    <Compile Include="Enumerations\ChestStatus.cs" />
+    <Compile Include="Enumerations\ChestType.cs" />
+    <Compile Include="Enumerations\AttributeStatOperator.cs" />
+    <Compile Include="Enumerations\EventCodes.cs" />
+    <Compile Include="Enumerations\OperationCodes.cs" />
+    <Compile Include="Enumerations\ValueType.cs" />
+    <Compile Include="Models\LootChest.cs" />
+    <Compile Include="Models\LootChestRoot.cs" />
+    <Compile Include="Models\LootChests.cs" />
+    <Compile Include="Models\ClusterInfo.cs" />
+    <Compile Include="Models\NetworkModel\DiedObject.cs" />
+    <Compile Include="Models\WorldJsonObject.cs" />
+    <Compile Include="Network\Events\DiedEvent.cs" />
+    <Compile Include="Network\Events\NewLootChestEvent.cs" />
+    <Compile Include="Network\Events\LootChestOpenedEvent.cs" />
+    <Compile Include="Network\Events\TestEvent3.cs" />
+    <Compile Include="Network\Events\TestEvent2.cs" />
+    <Compile Include="Network\Events\TestEvent.cs" />
+    <Compile Include="Network\Handler\NewLootChestEventHandler.cs" />
+    <Compile Include="Network\Handler\LootChestOpenedEventHandler.cs" />
+    <Compile Include="Network\Handler\ChangeClusterResponseHandler.cs" />
+    <Compile Include="Network\Handler\TestHandler3.cs" />
+    <Compile Include="Network\Handler\TestHandler2.cs" />
+    <Compile Include="Network\Handler\TestHandler.cs" />
+    <Compile Include="Network\Handler\DiedEventHandler.cs" />
+    <Compile Include="Network\Notification\DungeonChestFragment.cs" />
+    <Compile Include="Network\Notification\DungeonNotificationFragment.cs" />
+    <Compile Include="Enumerations\DungeonStatus.cs" />
+    <Compile Include="Enumerations\ChestRarity.cs" />
+    <Compile Include="Enumerations\DungeonMode.cs" />
+    <Compile Include="Enumerations\Faction.cs" />
+    <Compile Include="Network\Operations\Responses\ChangeClusterResponse.cs" />
+    <Compile Include="Network\CountUpTimer.cs" />
+    <Compile Include="Models\NetworkModel\Container.cs" />
+    <Compile Include="Models\NetworkModel\Loot.cs" />
+    <Compile Include="Enumerations\PvpPveType.cs" />
+    <Compile Include="Network\Notification\TrackingNotification.cs" />
+    <Compile Include="Network\Events\UpdateMoneyEvent.cs" />
+    <Compile Include="Common\SoundController.cs" />
+    <Compile Include="Exceptions\TooManyRequestsException.cs" />
+    <Compile Include="Common\Alert.cs" />
+    <Compile Include="Models\CategoryComboboxObject.cs" />
+    <Compile Include="Common\Formatting.cs" />
+    <Compile Include="Common\FrequentlyValues.cs" />
+    <Compile Include="Common\ApiController.cs" />
+    <Compile Include="Common\ItemController.cs" />
+    <Compile Include="Common\CategoryController.cs" />
+    <Compile Include="Models\CategoryObject.cs" />
+    <Compile Include="Models\FileInformation.cs" />
+    <Compile Include="Models\GoldModels.cs" />
+    <Compile Include="Models\ItemJsonObject.cs" />
+    <Compile Include="Models\ItemCategoryTree.cs" />
+    <Compile Include="Models\Buff.cs" />
+    <Compile Include="Models\InfoWindowTranslation.cs" />
+    <Compile Include="Models\MainWindowTranslation.cs" />
+    <Compile Include="Models\ItemWindowTranslation.cs" />
+    <Compile Include="Models\MarketHistoriesResponse.cs" />
+    <Compile Include="Models\MarketHistoryResponse.cs" />
+    <Compile Include="Models\PlayerModeInformationModel.cs" />
+    <Compile Include="Models\SettingsWindowTranslation.cs" />
+    <Compile Include="Models\PlayerModeTranslation.cs" />
+    <Compile Include="Models\Guild.cs" />
+    <Compile Include="Models\GameInfoPlayers.cs" />
+    <Compile Include="Models\SearchInfos.cs" />
+    <Compile Include="Models\MarketOrder.cs" />
+    <Compile Include="Models\MarketStats.cs" />
+    <Compile Include="Models\WeaponCategories.cs" />
+    <Compile Include="Network\Events\UpdateFameEvent.cs" />
+    <Compile Include="Network\Operations\Responses\JoinResponse.cs" />
+    <Compile Include="Network\Handler\UpdateMoneyEventHandler.cs" />
+    <Compile Include="Network\Handler\UpdateFameEventHandler.cs" />
+    <Compile Include="Network\Notification\FameNotificationFragment.cs" />
+    <Compile Include="Network\Notification\LineFragment.cs" />
+    <Compile Include="Network\Notification\TextFragment.cs" />
+    <Compile Include="Network\Operations\MoveOperation.cs" />
+    <Compile Include="Network\Handler\JoinResponseHandler.cs" />
+    <Compile Include="Network\NetworkManager.cs" />
+    <Compile Include="Network\Events\UpdateReSpecPointsEvent.cs" />
+    <Compile Include="Network\Events\PartySilverGainedEvent.cs" />
+    <Compile Include="Network\Events\TakeSilverEvent.cs" />
+    <Compile Include="Network\Events\NewLootEvent.cs" />
+    <Compile Include="Network\Events\NewCharacterEvent.cs" />
+    <Compile Include="Network\Handler\UpdateReSpecPointsEventHandler.cs" />
+    <Compile Include="Network\Handler\PartySilverGainedEventHandler.cs" />
+    <Compile Include="Network\Handler\TakeSilverEventHandler.cs" />
+    <Compile Include="Network\Handler\NewLootEventHandler.cs" />
+    <Compile Include="Network\Handler\NewCharacterEventHandler.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DungeonStats.cs" />
+    <Compile Include="Network\Time\GameTimeSpan.cs" />
+    <Compile Include="Models\CraftingInformation.cs" />
+    <Compile Include="ViewModels\InfoWindowViewModel.cs" />
+    <Compile Include="Models\ItemAlertWindowTranslation.cs" />
+    <Compile Include="ViewModels\ItemWindowViewModel.cs" />
+    <Compile Include="ViewModels\SettingsWindowViewModel.cs" />
+    <Compile Include="Models\AlertInfos.cs" />
+    <Compile Include="Views\InfoWindow.xaml.cs">
+      <DependentUpon>InfoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ItemAlertWindow.xaml.cs">
+      <DependentUpon>ItemAlertWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ItemAlertWindowViewModel.cs" />
+    <Compile Include="Views\SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\DirectoryController.cs" />
+    <Compile Include="Common\ImageController.cs" />
+    <Compile Include="Common\LanguageController.cs" />
+    <Compile Include="Common\Utilities.cs" />
+    <Compile Include="Common\WebDownload.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\ItemWindow.xaml.cs">
+      <DependentUpon>ItemWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Locations.cs" />
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\ItemData.cs" />
+    <Compile Include="Models\Item.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="GameFiles\lootchests.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="GameFiles\world.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Content Include="Sounds\alert1.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\alert2.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\alert3.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\alert4.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Content Include="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Languages\pt-BR.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Languages\ru-RU.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Languages\de-DE.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Languages\en-US.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ReferencePath Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\packages\Albion.Network.5.0.0\lib\netstandard2.0\Albion.Network.dll" />
+    <ReferencePath Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\packages\Autoupdater.NET.Official.1.6.3\lib\net45\AutoUpdater.NET.dll" />
+    <ReferencePath Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\packages\FontAwesome5.2.1.0\lib\net472\FontAwesome5.dll" />
+    <ReferencePath Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\packages\FontAwesome5.2.1.0\lib\net472\FontAwesome5.Net.dll" />
+    <ReferencePath Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll" />
+    <ReferencePath Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll" />
+    <ReferencePath Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\packages\log4net.2.0.11\lib\net45\log4net.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Microsoft.CSharp.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\mscorlib.dll" />
+    <ReferencePath Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll" />
+    <ReferencePath Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\packages\PacketDotNet.1.2.0\lib\net45\PacketDotNet.dll" />
+    <ReferencePath Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\packages\Pastel.2.1.0\lib\netstandard2.0\Pastel.dll" />
+    <ReferencePath Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\packages\PcapDotNet.0.10.2\lib\net40\PcapDotNet.Base.dll" />
+    <ReferencePath Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\packages\PcapDotNet.0.10.2\lib\net40\PcapDotNet.Core.dll" />
+    <ReferencePath Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\packages\PcapDotNet.0.10.2\lib\net40\PcapDotNet.Core.Extensions.dll" />
+    <ReferencePath Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\packages\PcapDotNet.0.10.2\lib\net40\PcapDotNet.Packets.dll" />
+    <ReferencePath Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\packages\PhotonPackageParser.4.1.0\lib\netstandard2.0\PhotonPackageParser.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\PresentationCore.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\PresentationFramework.dll" />
+    <ReferencePath Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\packages\PhotonPackageParser.4.1.0\lib\netstandard2.0\Protocol16.dll" />
+    <ReferencePath Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\packages\SharpPcap.5.4.0\lib\netstandard2.0\SharpPcap.dll" />
+    <ReferencePath Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Configuration.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Core.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Data.DataSetExtensions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Data.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Drawing.dll" />
+    <ReferencePath Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Net.Http.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Numerics.dll" />
+    <ReferencePath Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll" />
+    <ReferencePath Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\packages\System.Runtime.CompilerServices.Unsafe.4.7.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Runtime.Serialization.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Web.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Xaml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Xml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Xml.Linq.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\WindowsBase.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\Microsoft.Win32.Primitives.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\netstandard.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.AppContext.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Collections.Concurrent.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Collections.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Collections.NonGeneric.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Collections.Specialized.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.ComponentModel.Annotations.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.ComponentModel.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.ComponentModel.EventBasedAsync.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.ComponentModel.Primitives.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.ComponentModel.TypeConverter.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Console.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Data.Common.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Diagnostics.Contracts.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Diagnostics.Debug.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Diagnostics.FileVersionInfo.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Diagnostics.Process.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Diagnostics.StackTrace.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Diagnostics.TextWriterTraceListener.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Diagnostics.Tools.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Diagnostics.TraceSource.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Drawing.Primitives.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Dynamic.Runtime.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Globalization.Calendars.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Globalization.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Globalization.Extensions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.IO.Compression.ZipFile.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.IO.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.IO.FileSystem.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.IO.FileSystem.DriveInfo.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.IO.FileSystem.Primitives.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.IO.FileSystem.Watcher.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.IO.IsolatedStorage.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.IO.MemoryMappedFiles.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.IO.Pipes.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.IO.UnmanagedMemoryStream.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Linq.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Linq.Expressions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Linq.Parallel.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Linq.Queryable.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Net.Http.Rtc.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Net.NameResolution.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Net.NetworkInformation.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Net.Ping.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Net.Primitives.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Net.Requests.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Net.Security.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Net.Sockets.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Net.WebHeaderCollection.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Net.WebSockets.Client.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Net.WebSockets.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.ObjectModel.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Reflection.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Reflection.Emit.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Reflection.Emit.ILGeneration.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Reflection.Emit.Lightweight.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Reflection.Extensions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Reflection.Primitives.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Resources.Reader.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Resources.ResourceManager.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Resources.Writer.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Runtime.CompilerServices.VisualC.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Runtime.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Runtime.Extensions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Runtime.Handles.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Runtime.InteropServices.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Runtime.InteropServices.WindowsRuntime.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Runtime.Numerics.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Runtime.Serialization.Formatters.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Runtime.Serialization.Json.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Runtime.Serialization.Primitives.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Runtime.Serialization.Xml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Security.Claims.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Security.Cryptography.Algorithms.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Security.Cryptography.Csp.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Security.Cryptography.Encoding.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Security.Cryptography.Primitives.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Security.Cryptography.X509Certificates.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Security.Principal.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Security.SecureString.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.ServiceModel.Duplex.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.ServiceModel.Http.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.ServiceModel.NetTcp.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.ServiceModel.Primitives.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.ServiceModel.Security.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Text.Encoding.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Text.Encoding.Extensions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Text.RegularExpressions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Threading.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Threading.Overlapped.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Threading.Tasks.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Threading.Tasks.Parallel.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Threading.Thread.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Threading.ThreadPool.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Threading.Timer.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.ValueTuple.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Xml.ReaderWriter.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Xml.XDocument.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Xml.XmlDocument.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Xml.XmlSerializer.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Xml.XPath.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Xml.XPath.XDocument.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\StatisticsAnalysisTool\obj\x86\Debug\Views\InfoWindow.g.cs" />
+    <Compile Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\StatisticsAnalysisTool\obj\x86\Debug\Views\ItemAlertWindow.g.cs" />
+    <Compile Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\StatisticsAnalysisTool\obj\x86\Debug\Views\ItemWindow.g.cs" />
+    <Compile Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\StatisticsAnalysisTool\obj\x86\Debug\Views\MainWindow.g.cs" />
+    <Compile Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\StatisticsAnalysisTool\obj\x86\Debug\Views\SettingsWindow.g.cs" />
+    <Compile Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\StatisticsAnalysisTool\obj\x86\Debug\App.g.cs" />
+    <Compile Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\StatisticsAnalysisTool\obj\x86\Debug\StatisticsAnalysisTool_Content.g.cs" />
+    <Compile Include="C:\Users\schul\Documents\GitHub\AlbionOnline-StatisticsAnalysis\StatisticsAnalysisTool\StatisticsAnalysisTool\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs" />
+  </ItemGroup>
+</Project>

@@ -16,63 +16,6 @@ namespace StatisticsAnalysisTool.Common
     {
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-        public static async Task<ItemInformation> GetItemInfoFromJsonAsync(string uniqueName)
-        {
-            var url = $"https://gameinfo.albiononline.com/api/gameinfo/items/{uniqueName}/data";
-
-            using (var client = new HttpClient())
-            {
-                client.Timeout = TimeSpan.FromSeconds(60);
-                try
-                {
-                    using (var response = await client.GetAsync(url))
-                    {
-                        using (var content = response.Content)
-                        {
-                            var emptyItemInfo = new ItemInformation
-                            {
-                                UniqueName = uniqueName,
-                                LastUpdate = DateTime.Now
-                            };
-
-                            if (response.StatusCode == HttpStatusCode.NotFound)
-                            {
-                                emptyItemInfo.HttpStatus = HttpStatusCode.NotFound;
-                                return emptyItemInfo;
-                            }
-
-                            if (response.IsSuccessStatusCode)
-                            {
-                                var itemInfo = JsonConvert.DeserializeObject<ItemInformation>(await content.ReadAsStringAsync());
-                                itemInfo.HttpStatus = HttpStatusCode.OK;
-                                return itemInfo;
-                            }
-
-                            emptyItemInfo.HttpStatus = response.StatusCode;
-                            return emptyItemInfo;
-                        }
-                    }
-                }
-                catch (TaskCanceledException ex)
-                {
-                    ConsoleManager.WriteLineForError(MethodBase.GetCurrentMethod().DeclaringType, ex);
-                    Log.Error(MethodBase.GetCurrentMethod().DeclaringType, ex);
-                    return null;
-                }
-                catch (Exception e)
-                {
-                    ConsoleManager.WriteLineForError(MethodBase.GetCurrentMethod().DeclaringType, e);
-                    Log.Error(MethodBase.GetCurrentMethod().DeclaringType, e);
-                    return null;
-                }
-            }
-        }
-
-        public static async Task<ItemInformation> GetItemInfoFromJsonAsync(Item item)
-        {
-            return await GetItemInfoFromJsonAsync(item.UniqueName);
-        }
-
         /// <summary>
         ///     Returns all city item prices bye uniqueName, locations and qualities.
         /// </summary>

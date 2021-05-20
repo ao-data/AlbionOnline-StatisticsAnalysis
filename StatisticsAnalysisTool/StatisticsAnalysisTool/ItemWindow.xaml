@@ -3,6 +3,7 @@
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                     xmlns:models="clr-namespace:StatisticsAnalysisTool.Models"
+                    xmlns:itemJson="clr-namespace:StatisticsAnalysisTool.Models.ItemJson"
                     mc:Ignorable="d">
 
     <DataTemplate DataType="{x:Type models:CraftResource}">
@@ -14,7 +15,7 @@
         </Grid>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type models:ItemInformation}">
+    <DataTemplate DataType="{x:Type itemJson:MainItemJson}">
         <Grid Width="auto" Height="auto" Margin="5 0 0 0">
             <StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">

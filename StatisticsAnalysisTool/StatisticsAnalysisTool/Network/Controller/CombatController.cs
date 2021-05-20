@@ -8,7 +8,6 @@ using StatisticsAnalysisTool.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace StatisticsAnalysisTool.Network.Controller
 {
@@ -58,12 +57,12 @@ namespace StatisticsAnalysisTool.Network.Controller
 
             foreach (var damageObject in entities)
                 if (_mainWindowViewModel.DamageMeter.Any(x => x.CauserGuid == damageObject.Value.UserGuid))
-                    _mainWindow.Dispatcher?.Invoke(async () =>
+                    _mainWindow.Dispatcher?.Invoke(() =>
                     {
                         var fragment = _mainWindowViewModel.DamageMeter.FirstOrDefault(x => x.CauserGuid == damageObject.Value.UserGuid);
                         if (fragment != null)
                         {
-                            fragment.CauserMainHand = await SetItemInfoIfSlotTypeMainHandAsync(fragment.CauserMainHand,
+                            fragment.CauserMainHand = SetItemInfoIfSlotTypeMainHand(fragment.CauserMainHand,
                                 damageObject.Value?.CharacterEquipment?.MainHand);
 
                             if (damageObject.Value?.Damage > 0) fragment.DamageInPercent = (double) damageObject.Value.Damage / highestDamage * 100;
@@ -77,7 +76,7 @@ namespace StatisticsAnalysisTool.Network.Controller
                         _mainWindowViewModel.SetDamageMeterSort();
                     });
                 else
-                    _mainWindow.Dispatcher?.InvokeAsync(async () =>
+                    _mainWindow.Dispatcher?.InvokeAsync(() =>
                     {
                         var mainHandItem = ItemController.GetItemByIndex(damageObject.Value?.CharacterEquipment?.MainHand ?? 0);
 
@@ -91,7 +90,7 @@ namespace StatisticsAnalysisTool.Network.Controller
                                 DamageInPercent = (double) damageObject.Value.Damage / highestDamage * 100,
                                 DamagePercentage = GetDamagePercentage(entities, damageObject.Value.Damage),
                                 Name = damageObject.Value.Name,
-                                CauserMainHand = await SetItemInfoIfSlotTypeMainHandAsync(mainHandItem, damageObject.Value?.CharacterEquipment?.MainHand)
+                                CauserMainHand = SetItemInfoIfSlotTypeMainHand(mainHandItem, damageObject.Value?.CharacterEquipment?.MainHand)
                             };
 
                             _mainWindowViewModel.DamageMeter.Add(damageMeterFragment);
@@ -110,18 +109,17 @@ namespace StatisticsAnalysisTool.Network.Controller
             _mainWindow?.Dispatcher?.InvokeAsync(() => { _mainWindowViewModel?.DamageMeter?.Clear(); });
         }
 
-        private async Task<Item> SetItemInfoIfSlotTypeMainHandAsync(Item currentItem, int? newIndex)
+        private Item SetItemInfoIfSlotTypeMainHand(Item currentItem, int? newIndex)
         {
-            if (newIndex == null || newIndex <= 0) return currentItem;
-
-            var item = ItemController.GetItemByIndex((int) newIndex);
-            if (item == null) return currentItem;
-
-            var fullItemInfo = await ItemController.GetFullItemInformationAsync(item);
-            if (ItemController.IsItemSlotType(fullItemInfo, "mainhand"))
+            if (newIndex == null || newIndex <= 0)
             {
-                item.FullItemInformation = fullItemInfo;
-                return item;
+                return currentItem;
+            }
+
+            var item = ItemController.GetItemByIndex((int)newIndex);
+            if (item == null)
+            {
+                return currentItem;
             }
 
             return currentItem;

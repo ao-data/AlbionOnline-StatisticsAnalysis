@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace StatisticsAnalysisTool.Models
 {
     public class Enchantments
     {
-        [JsonProperty(PropertyName = "enchantmentLevel")]
+        [JsonProperty(PropertyName = "enchantment")]
         public List<Enchantment> EnchantmentsList { get; set; }
     }
 }

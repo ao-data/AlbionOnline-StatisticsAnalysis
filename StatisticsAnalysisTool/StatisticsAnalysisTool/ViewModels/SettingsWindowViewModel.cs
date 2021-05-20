@@ -26,7 +26,6 @@ namespace StatisticsAnalysisTool.ViewModels
         private readonly MainWindowViewModel _mainWindowViewModel;
         private ObservableCollection<FileInformation> _alertSounds = new ObservableCollection<FileInformation>();
         private FileInformation _alertSoundSelection;
-        private int _fullItemInformationUpdateCycleDays;
         private bool _isOpenItemWindowInNewWindowChecked;
         private bool _showInfoWindowOnStartChecked;
         private SettingsWindowTranslation _translation;
@@ -89,7 +88,6 @@ namespace StatisticsAnalysisTool.ViewModels
             ItemListSourceUrl = Settings.Default.ItemListSourceUrl;
             IsOpenItemWindowInNewWindowChecked = Settings.Default.IsOpenItemWindowInNewWindowChecked;
             ShowInfoWindowOnStartChecked = Settings.Default.ShowInfoWindowOnStartChecked;
-            FullItemInformationUpdateCycleDays = Settings.Default.FullItemInformationUpdateCycleDays;
 
             #endregion
 
@@ -109,7 +107,6 @@ namespace StatisticsAnalysisTool.ViewModels
             Settings.Default.UpdateItemListByDays = UpdateItemListByDaysSelection.Value;
             Settings.Default.IsOpenItemWindowInNewWindowChecked = IsOpenItemWindowInNewWindowChecked;
             Settings.Default.ShowInfoWindowOnStartChecked = ShowInfoWindowOnStartChecked;
-            Settings.Default.FullItemInformationUpdateCycleDays = FullItemInformationUpdateCycleDays;
             Settings.Default.SelectedAlertSound = AlertSoundSelection?.FileName ?? string.Empty;
 
             LanguageController.CurrentCultureInfo = new CultureInfo(LanguagesSelection.FileName);
@@ -125,7 +122,6 @@ namespace StatisticsAnalysisTool.ViewModels
             Translation = new SettingsWindowTranslation();
 
             _mainWindowViewModel.SetUiElements();
-            _mainWindowViewModel.IsFullItemInformationCompleteCheck();
             _mainWindowViewModel.PlayerModeTranslation = new PlayerModeTranslation();
             _mainWindowViewModel.LoadTranslation = LanguageController.Translation("LOAD");
             _mainWindowViewModel.NumberOfValuesTranslation = LanguageController.Translation("NUMBER_OF_VALUES");
@@ -156,16 +152,6 @@ namespace StatisticsAnalysisTool.ViewModels
             set
             {
                 _alertSoundSelection = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public int FullItemInformationUpdateCycleDays
-        {
-            get => _fullItemInformationUpdateCycleDays;
-            set
-            {
-                _fullItemInformationUpdateCycleDays = value;
                 OnPropertyChanged();
             }
         }

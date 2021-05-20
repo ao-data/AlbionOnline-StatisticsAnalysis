@@ -1,9 +1,9 @@
-﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using StatisticsAnalysisTool.Annotations;
+﻿using StatisticsAnalysisTool.Annotations;
 using StatisticsAnalysisTool.Common;
 using StatisticsAnalysisTool.Models;
+using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace StatisticsAnalysisTool.Network.Notification
 {
@@ -96,7 +96,8 @@ namespace StatisticsAnalysisTool.Network.Notification
             set
             {
                 _causerMainHand = value;
-                CategoryId = _causerMainHand?.FullItemInformation?.CategoryId;
+                // TODO: CategoryId == ShopCategory? Important?
+                //CategoryId = _causerMainHand?.MainItemInfo?.ShopCategory;
                 OnPropertyChanged();
             }
         }

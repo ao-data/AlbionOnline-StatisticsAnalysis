@@ -272,13 +272,13 @@ namespace StatisticsAnalysisTool.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("FullItemInformation.json")]
-        public string FullItemInformationFileName {
+        [global::System.Configuration.DefaultSettingValueAttribute("MainItemInformation.json")]
+        public string MainItemInformationFileName {
             get {
-                return ((string)(this["FullItemInformationFileName"]));
+                return ((string)(this["MainItemInformationFileName"]));
             }
             set {
-                this["FullItemInformationFileName"] = value;
+                this["MainItemInformationFileName"] = value;
             }
         }
         
@@ -458,6 +458,42 @@ namespace StatisticsAnalysisTool.Properties {
             }
             set {
                 this["FavoriteItemsFileName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://raw.githubusercontent.com/broderickhyman/ao-bin-dumps/master/items.json")]
+        public string MainItemInfoSourceUrl {
+            get {
+                return ((string)(this["MainItemInfoSourceUrl"]));
+            }
+            set {
+                this["MainItemInfoSourceUrl"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://raw.githubusercontent.com/broderickhyman/ao-bin-dumps/master/items.json")]
+        public string DefaultMainItemInfoSourceUrl {
+            get {
+                return ((string)(this["DefaultMainItemInfoSourceUrl"]));
+            }
+            set {
+                this["DefaultMainItemInfoSourceUrl"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("MainItemInfo.json")]
+        public string MainItemInfoFileName {
+            get {
+                return ((string)(this["MainItemInfoFileName"]));
+            }
+            set {
+                this["MainItemInfoFileName"] = value;
             }
         }
     }

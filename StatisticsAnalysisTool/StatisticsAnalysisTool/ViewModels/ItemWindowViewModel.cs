@@ -3,7 +3,6 @@ using LiveCharts;
 using LiveCharts.Wpf;
 using log4net;
 using StatisticsAnalysisTool.Common;
-using StatisticsAnalysisTool.Enumerations;
 using StatisticsAnalysisTool.Exceptions;
 using StatisticsAnalysisTool.Models;
 using StatisticsAnalysisTool.Properties;
@@ -48,10 +47,9 @@ namespace StatisticsAnalysisTool.ViewModels
         private Visibility _informationLoadingImageVisibility;
         private bool _isAutoUpdateActive;
         private Item _item;
-        private ItemInformation _itemInfo;
         private XmlLanguage _itemListViewLanguage;
         private string _itemName;
-        private string _itemTierLevel;
+        private string _itemTier;
         private string[] _labelsHistory;
         private EFontAwesomeIcon _loadingImageIcon;
         private bool _loadingImageSpin;
@@ -78,7 +76,6 @@ namespace StatisticsAnalysisTool.ViewModels
 
         public void InitializeItemWindow(Item item)
         {
-            ItemInfo = null;
             ErrorBarVisibility = Visibility.Hidden;
             SetDefaultQualityIfNoOneChecked();
 
@@ -96,7 +93,7 @@ namespace StatisticsAnalysisTool.ViewModels
         {
             Icon = null;
             ItemName = "-";
-            ItemTierLevel = string.Empty;
+            ItemTier = string.Empty;
 
             if (item == null)
             {
@@ -104,8 +101,7 @@ namespace StatisticsAnalysisTool.ViewModels
                 return;
             }
 
-            ItemTierLevel = Item?.Tier != -1 && Item?.Level != -1 ? $"T{Item?.Tier}.{Item?.Level}" : string.Empty;
-            SetFullItemInformationAsync(item);
+            ItemTier = $"{FrequentlyValues.ItemTiersShort.FirstOrDefault(x => x.Key == item.Tier).Value ?? string.Empty}.{Item?.Level}";
 
             await _mainWindow.Dispatcher.InvokeAsync(() =>
             {
@@ -127,27 +123,21 @@ namespace StatisticsAnalysisTool.ViewModels
             await _mainWindow.Dispatcher.InvokeAsync(() =>
             {
                 _mainWindow.Icon = item.Icon;
-                _mainWindow.Title = $"{localizedName} (T{item.Tier})";
+                _mainWindow.Title = $"{localizedName} ({FrequentlyValues.ItemTiersShort.FirstOrDefault(x => x.Key == item.Tier).Value}.{Item?.Level})";
             });
 
             StartAutoUpdater();
             RefreshSpin = IsAutoUpdateActive;
         }
 
-        private async void SetFullItemInformationAsync(Item item)
-        {
-            InformationLoadingImageVisibility = Visibility.Visible;
-            ItemInfo = await ItemController.GetFullItemInformationAsync(item);
-            InformationLoadingImageVisibility = Visibility.Hidden;
-        }
-
         private void SetCraftingInfo()
         {
-
+            // TODO: Add SetCraftingInfo
             CraftingInfo = new CraftingInformation()
             {
-                CraftResource = ItemInfo.CraftingRequirements.CraftResource,
-                BaseFame = FrequentlyValues.GetBaseFame((ItemTier)Item.Tier, (ItemLevel)Item.Level, Artifact.Runes)
+                // TODO: Add Main Item Info
+                //CraftResource = Item.MainItemInfo.CraftingRequirements.CraftResource,
+                //BaseFame = FrequentlyValues.GetBaseFame((ItemTier)Item.MainItemInfo.Tier, (ItemLevel)Item.Level, Artifact.Runes)
             };
         }
 
@@ -633,16 +623,6 @@ namespace StatisticsAnalysisTool.ViewModels
             }
         }
 
-        public ItemInformation ItemInfo
-        {
-            get => _itemInfo;
-            set
-            {
-                _itemInfo = value;
-                OnPropertyChanged();
-            }
-        }
-
         public CraftingInformation CraftingInfo
         {
             get => _craftingInfo;
@@ -663,12 +643,12 @@ namespace StatisticsAnalysisTool.ViewModels
             }
         }
 
-        public string ItemTierLevel
+        public string ItemTier
         {
-            get => _itemTierLevel;
+            get => _itemTier;
             set
             {
-                _itemTierLevel = value;
+                _itemTier = value;
                 OnPropertyChanged();
             }
         }

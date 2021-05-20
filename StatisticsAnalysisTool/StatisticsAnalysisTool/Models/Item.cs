@@ -19,14 +19,9 @@ namespace StatisticsAnalysisTool.Models
             : $"{ItemController.LocalizedName(LocalizedNames, null, UniqueName)}\n{ItemController.LocalizedName(LocalizedNames, "EN-US", string.Empty)}{GetUniqueNameIfDebug()}";
 
         public string LocalizedName => ItemController.LocalizedName(LocalizedNames, null, UniqueName);
-
+        public ItemTier Tier => ItemController.GetTier(UniqueName);
         public int Level => ItemController.GetItemLevel(UniqueName);
-        public int Tier => ItemController.GetItemTier(this);
-        public BitmapImage Icon => _icon ?? (_icon = ImageController.GetItemImage(UniqueName));
-
-        public BitmapImage ExistFullItemInformationLocal => ItemController.ExistFullItemInformationLocal(UniqueName);
-        public ItemInformation FullItemInformation { get; set; }
-
+        public BitmapImage Icon => _icon ??= ImageController.GetItemImage(UniqueName);
         public int AlertModeMinSellPriceIsUndercutPrice { get; set; }
         public bool IsAlertActive { get; set; }
         public bool IsFavorite { get; set; }

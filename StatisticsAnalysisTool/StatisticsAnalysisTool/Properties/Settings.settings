@@ -65,8 +65,8 @@
     <Setting Name="ShowInfoWindowOnStartChecked" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="FullItemInformationFileName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">FullItemInformation.json</Value>
+    <Setting Name="MainItemInformationFileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">MainItemInformation.json</Value>
     </Setting>
     <Setting Name="IsFullItemInfoSearchActive" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -112,6 +112,15 @@
     </Setting>
     <Setting Name="FavoriteItemsFileName" Type="System.String" Scope="User">
       <Value Profile="(Default)">FavoriteItems.json</Value>
+    </Setting>
+    <Setting Name="MainItemInfoSourceUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://raw.githubusercontent.com/broderickhyman/ao-bin-dumps/master/items.json</Value>
+    </Setting>
+    <Setting Name="DefaultMainItemInfoSourceUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://raw.githubusercontent.com/broderickhyman/ao-bin-dumps/master/items.json</Value>
+    </Setting>
+    <Setting Name="MainItemInfoFileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">MainItemInfo.json</Value>
     </Setting>
   </Settings>
 </SettingsFile>

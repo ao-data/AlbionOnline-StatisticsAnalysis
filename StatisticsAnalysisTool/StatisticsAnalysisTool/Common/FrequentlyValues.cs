@@ -18,6 +18,19 @@ namespace StatisticsAnalysisTool.Common
             {ItemTier.T8, "Tier 8"}
         };
 
+        public static readonly Dictionary<ItemTier, string> ItemTiersShort = new Dictionary<ItemTier, string>
+        {
+            {ItemTier.Unknown, string.Empty},
+            {ItemTier.T1, "T1"},
+            {ItemTier.T2, "T2"},
+            {ItemTier.T3, "T3"},
+            {ItemTier.T4, "T4"},
+            {ItemTier.T5, "T5"},
+            {ItemTier.T6, "T6"},
+            {ItemTier.T7, "T7"},
+            {ItemTier.T8, "T8"}
+        };
+
         public static readonly Dictionary<ItemLevel, string> ItemLevels = new Dictionary<ItemLevel, string>
         {
             {ItemLevel.Unknown, string.Empty},

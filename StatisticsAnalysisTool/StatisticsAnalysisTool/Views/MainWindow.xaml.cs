@@ -155,7 +155,6 @@ namespace StatisticsAnalysisTool.Views
             Settings.Default.Save();
 
             ItemController.SaveFavoriteItemsToLocalFile();
-            ItemController.SaveItemInformationLocal();
         }
 
         private async void BtnPlayerModeSave_Click(object sender, RoutedEventArgs e)
@@ -194,11 +193,6 @@ namespace StatisticsAnalysisTool.Views
         private void FilterReset_MouseUp(object sender, MouseButtonEventArgs e)
         {
             _mainWindowViewModel.ItemFilterReset();
-        }
-
-        private void LoadFullItemInfoButton_Click(object sender, RoutedEventArgs e)
-        {
-            _mainWindowViewModel.LoadAllFullItemInformationFromWeb();
         }
 
         private void AlertModeAlertActiveToggle_MouseUp(object sender, MouseButtonEventArgs e)
