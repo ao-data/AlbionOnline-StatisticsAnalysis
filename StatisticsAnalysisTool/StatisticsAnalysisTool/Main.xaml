@@ -725,6 +725,12 @@
         <Setter Property="Width" Value="425"></Setter>
     </Style>
 
+    <Style TargetType="Label" x:Key="Text.Title">
+        <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Foreground.First}"></Setter>
+        <Setter Property="FontSize" Value="16"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+    </Style>
+
     <!-- MainWindow version label -->
     <Style TargetType="Label" x:Key="MainWindow.Version">
         <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Highlighted.First}"></Setter>
